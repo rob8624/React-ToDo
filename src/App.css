@@ -1,0 +1,131 @@
+body {
+  background: transparent; /* Make it white if you need */
+  padding: 0 24px;
+  margin: 0;
+  height: 100vh;
+  
+}
+
+
+.App {
+  color: #72a24d;
+  margin-top: 50px
+}
+
+.container {
+  width: 500px;
+  margin: 0 auto
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin:5px;
+}
+
+.add--btn {
+  background: pink;
+  border: solid 1px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+.styled-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  border: solid 1px;
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table thead tr th {
+  border: solid 1px black;
+  padding: 5px;
+}
+
+.styled-table tr td {
+  font-size: 0.8rem;
+  padding: 4px;
+  text-align: center;
+  border: solid 1px;
+}
+
+/*table ID section */
+.styled-table tbody tr td:first-child {
+  background-color: #B5F8A5; 
+  font-weight: bold;
+}
+
+/*table date section */
+.styled-table tbody tr td:nth-child(2) {
+  width: 180px;
+}
+
+/*table task section */
+.styled-table tbody tr td:nth-child(3) {
+  width: 280px; 
+}
+
+/*table completed section */
+.styled-table tbody tr td:nth-child(4) {
+  width: 1px; 
+}
+
+.styled-table tbody tr {
+  border-bottom: solid 2px;
+  background-color: #C1E1C1;
+  color: black;
+  }
+
+  .styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 5px solid #009879;
+}
+
+.text-strike {
+  text-decoration: line-through;
+  color: grey;
+}
+
+
+.counter--total {
+  padding: 10px;
+  color:red;
+}
+
+.counter--tracker{
+  color: black;
+  padding: 10px;
+}
+
+
+
+/* form */
+
+.form--wrapper {
+  padding-bottom: 10px;
+  
+}
+
+.form--wrapper h2 {
+  font-size: 20px;
+  color: black;
+}
+
+.add--form input  {
+  border: solid 1px;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 5px;
+}
