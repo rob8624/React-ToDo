@@ -13,12 +13,12 @@ export function App() {
   const [addingTask, setAddingTask] = useState(false);
   const [allcomplete, setAllComplete] = useState(false);
   const formRef = useRef(null);
- 
-  
+
+
   useEffect(() => {
 
     const storedData =JSON.parse(localStorage.getItem('tasks'))
-    
+
     if(storedData && storedData.length > 0) {
       setTasks(storedData)
     }
@@ -38,7 +38,7 @@ export function App() {
     console.log(tasks)
   };
 
-  
+
   const handleClick = () => {
     setAddingTask(!addingTask  )
     setshowForm(prevState => {
@@ -62,26 +62,22 @@ export function App() {
     );
   };
 
-  
+
   const addTask = (newTask) => {
     setTasks(prevTasks => [...prevTasks, newTask])
   }
 
   const completeTasks = () => {
-    setAllComplete(prevAllComplete => {
-      const newAllComplete = !prevAllComplete;
-      setTasks(prevTasks =>
-        prevTasks.map(task =>
-          newAllComplete
-            ? { ...task, completed: true }
-            : { ...task, completed: false }
-        )
-      );
-      return newAllComplete;
-    });
+    setTasks(prevState =>
+      prevState.map(task => ({
+        ...task,
+        completed: !allcomplete // Flip the completion status based on current allcomplete
+      }))
+    );
+    setAllComplete(!allcomplete); // Toggle the allcomplete state
   };
-
   
+
   function Button({onMessage, offMessage}) {
     return (
        editingTaskId ? <div></div>
@@ -111,5 +107,3 @@ export function App() {
     </div>
   );
 }
-
-

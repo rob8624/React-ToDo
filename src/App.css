@@ -23,13 +23,26 @@ body {
   margin:5px;
 }
 
+
+/*buttons*/
+
 .add--btn {
+  background: pink;
+  border: solid 1px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.complete--btn {
+  display: inline;
   background: pink;
   border: solid 1px;
   border-radius: 10px;
   cursor: pointer;
 }
 
+/*buttons-end*/
 
 .styled-table {
   border-collapse: collapse;
@@ -129,3 +142,4 @@ body {
   padding: 15px;
   margin: 5px;
 }
+

@@ -1,8 +1,8 @@
 import React from 'react'
 
 export default function TaskCounter({total, tasks}) {
-
-
+  
+  
   let countComplete = tasks.filter(task => task.completed).length
   let countIncomplete = tasks.filter(task => task.completed === false).length
   

@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
+import TaskList from './tasks';
 
 
 
-export default function AddForm({addTask}) {
+export default function AddForm({addTask, tasks, active, adding}) {
 const [todo, setTodo] = useState('');
   
 const handleSubmit = (e) => {
   e.preventDefault();
+  adding()
   if (!todo.trim()) return;
 
   const newTask = {
-    id: self.crypto.randomUUID(),
+      id: tasks.length + 1,
       date: new Date().toISOString().split('T')[0], 
       task: todo,
       completed: false
@@ -18,6 +20,8 @@ const handleSubmit = (e) => {
 
   addTask(newTask);
   setTodo('');
+  active(prevState => !prevState)
+  
   
 }
 
@@ -29,7 +33,7 @@ const handleSubmit = (e) => {
         {handleSubmit}>
           <input type='text' value={todo} onChange=  
           {(e) => setTodo(e.target.value)}></input>
-            <input type="submit" value="Add" />
+            <input type="submit" disabled={!todo.trim()} value="Add"/>
       </form>
     </div>
     </>
