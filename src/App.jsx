@@ -67,6 +67,7 @@ export function App() {
     setTasks(prevTasks => [...prevTasks, newTask])
   }
 
+  
   const completeTasks = () => {
     setAllComplete(prevAllComplete => {
       const newAllComplete = !prevAllComplete;
@@ -82,6 +83,15 @@ export function App() {
   };
 
   
+  const deleteTask = (taskId) => {
+    if (window.confirm("Are you sure you want to delete this todo?")) {
+      setTasks(tasks.filter((task) => task.id !== taskId));
+    }
+  }
+
+  
+  
+  
   function Button({onMessage, offMessage}) {
     return (
        editingTaskId ? <div></div>
@@ -92,10 +102,11 @@ export function App() {
   return (
     <div className='App'>
       <div className='container'>
-       <div className='header'>
+      <div className='header'>
          <div>
            <Button onMessage={'Add ToDo'} offMessage={'Close Form'}/>
-           <CompleteBtn className='check--btn' complete={completeTasks} btnMessage={allcomplete}/>
+           <CompleteBtn className='check--btn' tasks={tasks} 
+             complete={completeTasks} btnMessage={allcomplete}/>
          </div>
           <TaskCounter total={tasks.length} tasks={tasks}/></div>
         <TaskList tasks={tasks} 
@@ -103,11 +114,13 @@ export function App() {
           editTask={editTask}
           editingTaskId={editingTaskId}
           setEditingTaskId={setEditingTaskId}
-          addingTask={addingTask}/>
+          addingTask={addingTask}
+          deleteTask={deleteTask}/>
           {showForm ? <div ref={formRef}><AddForm showForm={showForm} 
                                            addTask={addTask} 
-                                           tasks={tasks} active={setshowForm} adding={setAddingTask}  /></div> : <div></div>}
-      </div>
+                                           tasks={tasks} active={setshowForm} 
+                                           adding={setAddingTask}  />  </div> : <div></div>} 
+        </div>
     </div>
   );
 }

@@ -143,3 +143,28 @@ body {
   margin: 5px;
 }
 
+
+/*messages*/
+.empty-message {
+  padding:40px;
+  text-align: center;
+  color: black;
+  font-family: sans-serif;
+  font-size: 30px;
+}
+
+.message-word {
+  font-size: 50px;
+  font-style: italic;
+  opacity: 0; 
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; 
+  }
+  to {
+    opacity: 1; 
+  }
+}

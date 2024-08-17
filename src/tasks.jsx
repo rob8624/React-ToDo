@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import Delete from './delete.jsx'
 
 export default function TaskList({ tasks, toggleCheckBox, 
                                   editTask, editingTaskId, 
-                                  setEditingTaskId, addingTask}) {
+                                  setEditingTaskId, addingTask, deleteTask}) {
   
   
   let addingMode = {}
@@ -41,7 +42,7 @@ export default function TaskList({ tasks, toggleCheckBox,
 
   return (
     <>
-      
+      { tasks.length > 0 ?
       <table className="styled-table" style={addingMode}>
         <thead>
           <tr>
@@ -70,11 +71,14 @@ export default function TaskList({ tasks, toggleCheckBox,
                   <button onClick={handleCancel}>Cancel</button>
                 )}
               </td>
-              <td><button>Delete</button></td>
+              <td><Delete deleteTask={deleteTask} task={task.id}/></td>
             </tr>
           ))}
         </tbody>
-      </table> 
+      </table>
+      : <div className='empty-message'>
+        <span className='message-word'>Hey!</span> Start adding some tasks, lazybones!
+      </div>}
       {editingTaskId && (
         <div>
           <h2>Edit ToDo</h2>
